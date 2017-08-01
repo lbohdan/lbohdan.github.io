@@ -80,7 +80,7 @@
       const selectedMovie = lodash.find(ctrl.movies, {'id': movieId});
 
       ngDialog.open({
-        template: '<am-movie-item-details data-movie-details="ngDialogData.selectedMovie" class="am-movie-details-popup-popup"></am-movie-item-details>',
+        template: '<am-movie-item-details data-movie-details="ngDialogData.selectedMovie" class="am-movie-details-popup"></am-movie-item-details>',
         plain: true,
         scope: $scope,
         data: {

@@ -1,0 +1,112 @@
+.common-table {
+    background-color: #fdfdfd;
+
+    //
+    // Common table rules
+    //
+    .common-table-cells-container {
+        display: -ms-flexbox;
+        display: flex;
+        flex: 1 1 auto;
+        min-width: 0;
+        margin: 0;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .common-table-cell {
+        align-items: center;
+        border-left: @primary-border;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+        padding: 0 12px;
+        position: relative;
+        text-overflow: ellipsis;
+
+        &.no-border {
+            border-left: none;
+        }
+    }
+
+    //
+    // Table header
+    //
+    .common-table-header {
+        border-bottom: @primary-border;
+        border-top: @primary-border;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        line-height: 41px;
+
+        .common-table-cell {
+            color: @headings-primary-color;
+            font-family: @title-font;
+            font-size: 20px;
+            font-weight: 500;
+            height: 41px;
+            display: block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &.sortable {
+                cursor: pointer;
+                padding-right: 22px;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    .triangle-arrow(down; @icon-color-secondary; 5px; 7px);
+                    right: 13px;
+                    top: 18px;
+                }
+                &.sorted {
+                    &:after {
+                        .triangle-arrow(up; @icon-color-hover; 5px; 7px);
+                    }
+                    &.reversed:after {
+                        .triangle-arrow(down; @icon-color-hover; 5px; 7px);
+                    }
+                }
+            }
+        }
+    }
+
+    //
+    // Table body
+    //
+    .common-table-body {
+        .movie-item {
+            background-color: @green;
+
+            &.selected, &:hover {
+                background-color: @deep-green;
+            }
+
+            &.common-table-row .common-table-cell {
+                color: @white;
+            }
+        }
+
+        .common-table-row {
+            border-bottom: @primary-border;
+            display: -ms-flexbox;
+            display: flex;
+            position: relative;
+            min-height: 45px;
+
+            .common-table-cell {
+                border-left-color: transparent;
+                color: @text-primary-color;
+                font-size: 18px;
+                font-family: @prim-font;
+                font-weight: 400;
+
+                span {
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+}
