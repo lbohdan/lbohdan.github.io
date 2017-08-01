@@ -16,6 +16,13 @@
 
     ctrl.handleMovieClick = handleMovieClick;
 
+    //
+    // Public methods
+    //
+
+    /**
+     * Handles click on item with calling callback function
+     */
     function handleMovieClick() {
       ctrl.onMovieSelectCallback({selectedMovieId: ctrl.movieItem.id});
     }
