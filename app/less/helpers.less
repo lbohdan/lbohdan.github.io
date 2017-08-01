@@ -1,0 +1,13 @@
+.triangle-arrow(down; @color; @w; @h) {
+    border-top: @h solid @color;
+    border-bottom: none;
+    border-left: @w solid transparent !important;
+    border-right: @w solid transparent !important;;
+}
+
+.triangle-arrow(up; @color; @w; @h) {
+    border-top: none;
+    border-bottom: @h solid @color;
+    border-left: @w solid transparent !important;;
+    border-right: @w solid transparent !important;;
+}
