@@ -1,14 +1,30 @@
 const path = require('path');
 
 module.exports = {
-  entry: './app/js/app.module.js',
+  entry: './app/index.js',
   output: {
-    path: path.resolve(__dirname, '../'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   devtool: 'inline-source-map',
   module: {
     rules: [
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader?limit=100000'
+          }
+        ]
+      },
       {
         test: /\.jsx?$/,
         exclude: [/(node_modules)/],
@@ -42,6 +58,17 @@ module.exports = {
           },
           {
             loader: 'less-loader' // compiles Less to CSS
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader' // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader' // translates CSS into CommonJS
           }
         ]
       }

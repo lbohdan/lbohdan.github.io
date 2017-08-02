@@ -2,25 +2,28 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import MoviesComponent from './movies.component';
 import MoviesService from './movies.service';
-import MoviesList from './movies-list';
+import MovieItem from './movie-item';
+import MovieDetails from './movie-details';
 
 const movies = angular
   .module('movies', [
     uiRouter,
-    MoviesList
+    MovieItem,
+    MovieDetails
   ])
   .component('movies', MoviesComponent)
   .service('MoviesService', MoviesService)
   .config(($stateProvider, $urlRouterProvider) => {
+    'ngInject';
     $stateProvider
       .state('movies', {
         url: '/movies',
         component: 'movies',
         resolve: {
-          moviesData: MoviesService => MoviesService.getMovies()
+          movies: MoviesService => MoviesService.getMovies()
         }
-      })
-    $urlRouterProvider.otherwise('/');
+      });
+    $urlRouterProvider.otherwise('/movies');
   })
   .name;
 

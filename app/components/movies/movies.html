@@ -1,22 +1,22 @@
 <div class="common-table">
-    <div class="common-table-header am-row">
-        <div class="common-table-cell am-col-30 sortable"
-             data-ng-class="$ctrl.isColumnSorted('title', $ctrl.sortedColumnName, $ctrl.isReverseSorting)"
+    <div class="common-table-header row">
+        <div class="common-table-cell col-30 sortable"
+             data-ng-class="$ctrl.isColumnSorted('title')"
              data-ng-click="$ctrl.sortTableByColumn('title')">Title</div>
-        <div class="common-table-cell am-col-15 sortable"
-             data-ng-class="$ctrl.isColumnSorted('release_date', $ctrl.sortedColumnName, $ctrl.isReverseSorting)"
+        <div class="common-table-cell col-15 sortable"
+             data-ng-class="$ctrl.isColumnSorted('release_date')"
              data-ng-click="$ctrl.sortTableByColumn('release_date')">Release Date</div>
-        <div class="common-table-cell am-col-15 sortable"
-             data-ng-class="$ctrl.isColumnSorted('rt_score', $ctrl.sortedColumnName, $ctrl.isReverseSorting)"
+        <div class="common-table-cell col-15 sortable"
+             data-ng-class="$ctrl.isColumnSorted('rt_score')"
              data-ng-click="$ctrl.sortTableByColumn('rt_score')">Rate Score</div>
-        <div class="common-table-cell am-col-20 sortable"
-             data-ng-class="$ctrl.isColumnSorted('director', $ctrl.sortedColumnName, $ctrl.isReverseSorting)"
+        <div class="common-table-cell col-20 sortable"
+             data-ng-class="$ctrl.isColumnSorted('director')"
              data-ng-click="$ctrl.sortTableByColumn('director')">Director</div>
-        <div class="common-table-cell am-col-20 sortable"
-             data-ng-class="$ctrl.isColumnSorted('producer', $ctrl.sortedColumnName, $ctrl.isReverseSorting)"
+        <div class="common-table-cell col-20 sortable"
+             data-ng-class="$ctrl.isColumnSorted('producer')"
              data-ng-click="$ctrl.sortTableByColumn('producer')">Producer</div>
     </div>
     <div class="common-table-body">
-        <am-movie-item data-ng-repeat="movie in $ctrl.movies" data-movie-item="movie" data-on-movie-select-callback="$ctrl.selectMovie(selectedMovieId)"></am-movie-item>
+        <movie-item data-ng-repeat="movie in $ctrl.movies" data-movie-item="movie" data-on-movie-select-callback="$ctrl.selectMovie($event)"></movie-item>
     </div>
 </div>
